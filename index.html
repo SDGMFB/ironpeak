@@ -1,272 +1,407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronPeak Wellness | Premium Testosterone Support</title>
-    <!-- Tailwind CSS for modern, clean layout -->
+    <title>IronPeak Wellness | Professional Testosterone Support</title>
+    <!-- Tailwind CSS (Modern Engine) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 900: '#0c4a6e', 950: '#082f49' },
+                        dark: { 800: '#1e293b', 900: '#0f172a', 950: '#020617' }
+                    },
+                    animation: { 'float': 'float 6s ease-in-out infinite' },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #060b13; color: #f3f4f6; }
-        .gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .blue-border { border-color: #0284c7; }
-        .blue-bg { background-color: #0284c7; }
-        .blue-bg:hover { background-color: #0369a1; }
+        body { background-color: #020617; color: #f8fafc; }
+        .text-gradient { background: linear-gradient(135deg, #38bdf8, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-gradient-btn { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+        .bg-gradient-btn:hover { background: linear-gradient(135deg, #0284c7, #0369a1); }
+        .glass-nav { background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        /* Hide scrollbar for thumbnail matrix */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
 
-    <!-- Announcement Bar -->
-    <div class="bg-sky-500 text-slate-950 text-center py-2 text-sm font-bold tracking-wide uppercase">
-        ⚡ Flash Sale: Save up to 40% Off + Free US Shipping Today Only!
+    <!-- Animated Announcement Bar -->
+    <div class="bg-brand-500 text-white text-center py-2.5 text-xs sm:text-sm font-bold tracking-widest uppercase relative z-50">
+        <span class="inline-block animate-pulse mr-2">⚡</span> Flash Sale: Save up to 50% Off + Free US Shipping Today Only!
     </div>
 
-    <!-- Navigation -->
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between border-b border-sky-950">
-        <div class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
-            <span class="text-sky-500">▲</span> IRONPEAK <span class="text-xs font-light tracking-widest text-sky-400 uppercase">Wellness</span>
+    <!-- Sticky Glass Navigation -->
+    <nav class="sticky top-0 z-40 glass-nav border-b border-dark-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="text-2xl font-black tracking-tighter text-white flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <svg class="w-8 h-8 text-brand-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 5.5l5.5 11h-11L12 7.5z"/></svg>
+                IRONPEAK <span class="text-sm font-medium tracking-widest text-brand-400 uppercase mt-1">Pro</span>
+            </div>
+            <a href="#pricing" class="hidden sm:inline-flex bg-transparent hover:bg-dark-800 text-brand-400 border border-brand-500/30 px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,165,233,0.3)]">
+                Secure Your Supply
+            </a>
         </div>
-        <a href="#pricing" class="bg-transparent hover:bg-sky-950 text-sky-400 border border-sky-500/30 px-5 py-2 rounded-full text-sm font-semibold transition">
-            Order Now
-        </a>
     </nav>
 
-    <!-- Hero Section (The Hook) -->
-    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 lg:pt-20">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <!-- Left Side Copy -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                    Scientifically Formulated Dietary Supplement
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-                    Reclaim Your Peak <br class="hidden sm:inline">
-                    <span class="gradient-text">Energy, Focus & Drive</span>
+    <!-- Hero Section -->
+    <header class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 lg:pt-24 overflow-hidden">
+        <!-- Background Glow Effect -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-900/20 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <!-- Hero Copy -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-brand-950/50 text-brand-400 border border-brand-500/20 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    Clinical-Grade Dietary Supplement
+                </div>
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">
+                    Optimize Your <br>
+                    <span class="text-gradient">Strength & Drive</span>
                 </h1>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0">
-                    Stop letting fatigue and brain fog dictate your day. IronPeak Wellness safely optimizes your natural vitality, supporting clean energy, lean muscle recovery, and unstoppable stamina.
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Break through plateaus. IronPeak Pro safely accelerates natural vitality, supporting clean energy, rapid muscle recovery, and relentless stamina without the crash.
                 </p>
-                <!-- Bullet points for skimmers -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left max-w-md mx-auto lg:mx-0 pt-2">
-                    <div class="flex items-center gap-2 text-slate-300">
-                        <svg class="w-5 h-5 text-sky-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span>Enhanced Daily Energy</span>
+                
+                <!-- Benefit Checklist -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-lg mx-auto lg:mx-0">
+                    <div class="flex items-center gap-3 text-slate-300 font-medium">
+                        <div class="bg-brand-500/20 p-1 rounded-full"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span>Surge of Clean Energy</span>
                     </div>
-                    <div class="flex items-center gap-2 text-slate-300">
-                        <svg class="w-5 h-5 text-sky-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span>Natural T-Level Support</span>
+                    <div class="flex items-center gap-3 text-slate-300 font-medium">
+                        <div class="bg-brand-500/20 p-1 rounded-full"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span>Natural T-Level Defense</span>
                     </div>
-                    <div class="flex items-center gap-2 text-slate-300">
-                        <svg class="w-5 h-5 text-sky-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span>Accelerated Muscle Recovery</span>
+                    <div class="flex items-center gap-3 text-slate-300 font-medium">
+                        <div class="bg-brand-500/20 p-1 rounded-full"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span>Rapid Muscle Recovery</span>
                     </div>
-                    <div class="flex items-center gap-2 text-slate-300">
-                        <svg class="w-5 h-5 text-sky-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        <span>Zero Shakes or Crashes</span>
+                    <div class="flex items-center gap-3 text-slate-300 font-medium">
+                        <div class="bg-brand-500/20 p-1 rounded-full"><svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        <span>Zero Synthetic Crash</span>
                     </div>
                 </div>
-                <!-- Call To Action Button -->
-                <div class="pt-4">
-                    <a href="#pricing" class="inline-block w-full sm:w-auto text-center blue-bg text-white font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl shadow-sky-500/20 transform hover:-translate-y-0.5 transition duration-200">
-                        CLAIM YOUR BOTTLE NOW →
+
+                <!-- CTA -->
+                <div class="pt-6">
+                    <a href="#pricing" class="inline-flex justify-center items-center gap-3 w-full sm:w-auto bg-gradient-btn text-white font-extrabold text-lg px-10 py-5 rounded-2xl shadow-[0_10px_40px_-10px_rgba(14,165,233,0.5)] transform hover:-translate-y-1 transition-all duration-300">
+                        ACTIVATE YOUR POTENTIAL
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
                     </a>
-                    <p class="text-xs text-slate-500 mt-2 text-center lg:text-left">🔒 100% Secure 256-Bit Encrypted Checkout</p>
+                    <div class="flex items-center justify-center lg:justify-start gap-2 mt-4 text-xs text-slate-500 font-medium">
+                        <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                        Guaranteed Safe & Secure 256-Bit Checkout
+                    </div>
                 </div>
             </div>
             
-            <!-- Right Side Product Image Showcase -->
-            <div class="lg:col-span-5 flex flex-col items-center">
-                <div class="relative bg-gradient-to-b from-sky-950/40 to-transparent p-6 rounded-2xl border border-sky-900/50 max-w-md w-full">
-                    <img id="main-product-image" src="https://m.media-amazon.com/images/I/71TQhimfAdL._AC_SL1500_.jpg" alt="IronPeak Wellness Supplement Main Bottle" class="w-full h-auto object-contain rounded-lg transition duration-300">
+            <!-- Hero Images & Thumbnails -->
+            <div class="lg:col-span-5 flex flex-col items-center z-10">
+                <div class="relative w-full max-w-md group cursor-pointer" onclick="document.getElementById('thumb-2').click()">
+                    <!-- Decorative corner accents -->
+                    <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-brand-500 rounded-tl-lg transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2"></div>
+                    <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-brand-500 rounded-br-lg transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    
+                    <div class="bg-dark-900/80 backdrop-blur-md p-6 rounded-2xl border border-dark-800 shadow-2xl relative z-10 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-900/10 to-transparent"></div>
+                        <img id="main-product-image" src="https://m.media-amazon.com/images/I/71TQhimfAdL._AC_SL1500_.jpg" alt="IronPeak Wellness Main" class="w-full h-auto object-contain rounded-xl relative z-20 animate-float drop-shadow-2xl transition-all duration-500">
+                    </div>
                 </div>
-                <!-- Interactive Thumbnail Matrix -->
-                <div class="grid grid-cols-4 gap-2 mt-4 max-w-md w-full">
-                    <img onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/71TQhimfAdL._AC_SL1500_.jpg" class="cursor-pointer hover:border-sky-400 border border-sky-950 p-1 bg-slate-900 rounded transition" alt="Thumbnail 1">
-                    <img onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81hL26dn0RL._AC_SL1500_.jpg" class="cursor-pointer hover:border-sky-400 border border-sky-950 p-1 bg-slate-900 rounded transition" alt="Thumbnail 2">
-                    <img onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81z4UVbF6RL._AC_SL1500_.jpg" class="cursor-pointer hover:border-sky-400 border border-sky-950 p-1 bg-slate-900 rounded transition" alt="Thumbnail 3">
-                    <img onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81IO4eclQEL._AC_SL1500_.jpg" class="cursor-pointer hover:border-sky-400 border border-sky-950 p-1 bg-slate-900 rounded transition" alt="Thumbnail 4">
+
+                <!-- Scrollable Thumbnails -->
+                <div class="flex gap-3 mt-8 max-w-md w-full overflow-x-auto no-scrollbar pb-2 px-1">
+                    <img id="thumb-1" onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/71TQhimfAdL._AC_SL1500_.jpg" class="w-20 h-20 object-cover cursor-pointer hover:border-brand-400 border-2 border-brand-600 p-1 bg-dark-800 rounded-xl transition-all duration-200 flex-shrink-0 shadow-lg opacity-100" alt="View 1">
+                    <img id="thumb-2" onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81hL26dn0RL._AC_SL1500_.jpg" class="w-20 h-20 object-cover cursor-pointer hover:border-brand-400 border-2 border-dark-800 hover:opacity-100 opacity-60 p-1 bg-dark-800 rounded-xl transition-all duration-200 flex-shrink-0" alt="View 2">
+                    <img id="thumb-3" onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81z4UVbF6RL._AC_SL1500_.jpg" class="w-20 h-20 object-cover cursor-pointer hover:border-brand-400 border-2 border-dark-800 hover:opacity-100 opacity-60 p-1 bg-dark-800 rounded-xl transition-all duration-200 flex-shrink-0" alt="View 3">
+                    <img id="thumb-4" onclick="changeImage(this.src)" src="https://m.media-amazon.com/images/I/81IO4eclQEL._AC_SL1500_.jpg" class="w-20 h-20 object-cover cursor-pointer hover:border-brand-400 border-2 border-dark-800 hover:opacity-100 opacity-60 p-1 bg-dark-800 rounded-xl transition-all duration-200 flex-shrink-0" alt="View 4">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Dynamic Social Proof / Trust Badges -->
-    <section class="bg-slate-900/60 border-y border-sky-950 py-8">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-                <p class="text-2xl font-bold text-white">GMP</p>
-                <p class="text-xs text-sky-400 uppercase tracking-wider">Certified Practice</p>
+    <!-- Trust Badges -->
+    <section class="bg-dark-900 border-y border-dark-800 py-10">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-dark-800">
+            <div class="space-y-1">
+                <p class="text-3xl font-black text-white">GMP</p>
+                <p class="text-[10px] sm:text-xs text-brand-400 uppercase tracking-[0.2em] font-semibold">Certified Facility</p>
             </div>
-            <div>
-                <p class="text-2xl font-bold text-white">USA</p>
-                <p class="text-xs text-sky-400 uppercase tracking-wider">Formulated & Made</p>
+            <div class="space-y-1">
+                <p class="text-3xl font-black text-white">USA</p>
+                <p class="text-[10px] sm:text-xs text-brand-400 uppercase tracking-[0.2em] font-semibold">Proudly Formulated</p>
             </div>
-            <div>
-                <p class="text-2xl font-bold text-white">100%</p>
-                <p class="text-xs text-sky-400 uppercase tracking-wider">Natural Ingredients</p>
+            <div class="space-y-1">
+                <p class="text-3xl font-black text-white">100%</p>
+                <p class="text-[10px] sm:text-xs text-brand-400 uppercase tracking-[0.2em] font-semibold">Natural Actives</p>
             </div>
-            <div>
-                <p class="text-2xl font-bold text-white">Third-Party</p>
-                <p class="text-xs text-sky-400 uppercase tracking-wider">Lab Tested for Purity</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Deep Dive Features & Transparency Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Engineered for Transparency & Performance</h2>
-            <p class="text-slate-400 mt-4">We don't hide behind "proprietary blends." You deserve to know exactly what goes into your body to optimize performance safely.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Left Side: Quality Image Panels -->
-            <div class="grid grid-cols-2 gap-4">
-                <img src="https://m.media-amazon.com/images/I/818Z2TG6F5L._AC_SL1500_.jpg" alt="IronPeak Wellness Supplement Facts Label" class="rounded-xl border border-sky-950 bg-slate-900 p-2">
-                <img src="https://m.media-amazon.com/images/I/81NDhDLbPLL._AC_SL1500_.jpg" alt="IronPeak Wellness Ingredient Source Map" class="rounded-xl border border-sky-950 bg-slate-900 p-2 mt-6">
-            </div>
-
-            <!-- Right Side: Ingredient Highlights Accompanying Panels -->
-            <div class="space-y-6">
-                <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                    <h3 class="text-lg font-bold text-sky-400 mb-2">Maximum Potency Complex</h3>
-                    <p class="text-sm text-slate-400">Our formula features clinically evaluated adaptogens and mineral precursors like Zinc, Magnesium, and Vitamin B6 to prime natural metabolic pathways natively without heavy synthetic over-stimulation.</p>
-                </div>
-                <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                    <h3 class="text-lg font-bold text-sky-400 mb-2">Optimized Nutrient Delivery</h3>
-                    <p class="text-sm text-slate-400">Every batch incorporates precision-extracted bio-enhancers designed to naturally augment your digestive tract's baseline bio-absorption rate, guaranteeing zero premium elements are wasted.</p>
-                </div>
-                <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                    <h3 class="text-lg font-bold text-white mb-2">Clean Processing Standards</h3>
-                    <p class="text-sm text-slate-400">Absolutely zero synthetic fillers, harsh chemical coloring agents, or unauthorized performance enhancements. Pure performance clean capsules engineered exactly how nature intended.</p>
-                </div>
+            <div class="space-y-1">
+                <p class="text-3xl font-black text-white">LAB</p>
+                <p class="text-[10px] sm:text-xs text-brand-400 uppercase tracking-[0.2em] font-semibold">3rd Party Tested</p>
             </div>
         </div>
     </section>
 
-    <!-- The Offer / Tiered Funnel Pricing Table -->
-    <section id="pricing" class="bg-gradient-to-b from-slate-950 to-slate-900 py-24 border-t border-sky-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-black text-white">Select Your IronPeak Wellness Package</h2>
-                <p class="text-slate-400 mt-4">Choose your supply preference below. Most customers opt for our 3 or 6-bottle options for systemic optimization and maximum discount tier advantage.</p>
+    <!-- Deep Dive Features -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="text-center max-w-3xl mx-auto mb-20">
+            <h2 class="text-4xl sm:text-5xl font-black text-white tracking-tight">Radical Transparency. <br><span class="text-brand-500">Proven Results.</span></h2>
+            <p class="text-slate-400 mt-6 text-lg">We banished "proprietary blends" from our vocabulary. See exactly what drives your performance with clinical doses optimized for bioavailability.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <!-- Left: Floating Image Cards -->
+            <div class="relative">
+                <div class="absolute inset-0 bg-brand-600/10 rounded-3xl blur-3xl -z-10 transform -rotate-6"></div>
+                <img src="https://m.media-amazon.com/images/I/818Z2TG6F5L._AC_SL1500_.jpg" alt="Supplement Facts" class="rounded-2xl border border-dark-800 bg-dark-900 p-2 shadow-2xl relative z-20">
+                <img src="https://m.media-amazon.com/images/I/81NDhDLbPLL._AC_SL1500_.jpg" alt="Ingredient Map" class="rounded-2xl border border-dark-800 bg-dark-900 p-2 shadow-2xl absolute -bottom-16 -right-8 w-2/3 z-30 transform hover:-translate-y-2 transition-transform duration-300 hidden sm:block">
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
-                <!-- 1 Bottle Option -->
-                <div class="bg-slate-900 p-8 rounded-2xl border border-sky-950 flex flex-col justify-between relative">
+            <!-- Right: Feature Blocks -->
+            <div class="space-y-6 sm:mt-16 lg:mt-0">
+                <div class="bg-dark-900/50 p-8 rounded-2xl border border-dark-800 hover:border-brand-500/50 transition-colors duration-300 group">
+                    <div class="w-12 h-12 bg-brand-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-500 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-brand-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Maximum Potency Complex</h3>
+                    <p class="text-slate-400 leading-relaxed">Formulated with clinically evaluated adaptogens, plus highly bioavailable Zinc and Magnesium. Primes your metabolic pathways naturally without taxing your adrenals.</p>
+                </div>
+                <div class="bg-dark-900/50 p-8 rounded-2xl border border-dark-800 hover:border-brand-500/50 transition-colors duration-300 group">
+                    <div class="w-12 h-12 bg-brand-900/50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-500 transition-colors duration-300">
+                        <svg class="w-6 h-6 text-brand-400 group-hover:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Optimized Delivery System</h3>
+                    <p class="text-slate-400 leading-relaxed">Incorporates precision-extracted bio-enhancers designed to naturally augment your gut's absorption baseline. Zero premium ingredients go to waste.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Funnel (The Core Offer) -->
+    <section id="pricing" class="relative bg-dark-900 py-28 border-t border-dark-800 overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brand-500 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-dark-950 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl sm:text-5xl font-black text-white">Choose Your Optimization Tier</h2>
+                <p class="text-slate-400 mt-5 text-lg">Select your supply below. 87% of men choose the 6-bottle bundle for systemic, long-term support and maximum discount advantage.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                <!-- Tier 1: Starter -->
+                <div class="bg-dark-950 p-8 rounded-3xl border border-dark-800 flex flex-col justify-between relative hover:border-brand-500/30 transition-all duration-300 group">
                     <div>
-                        <h3 class="text-xl font-bold text-white">Starter Pack</h3>
-                        <p class="text-xs text-slate-400 mt-1">30-Day Base Supply</p>
-                        <div class="mt-6 flex items-baseline gap-1">
-                            <span class="text-4xl font-extrabold text-white">$59</span>
-                            <span class="text-sm font-medium text-slate-400">/bottle</span>
+                        <h3 class="text-2xl font-bold text-white">Starter Phase</h3>
+                        <p class="text-sm text-slate-400 mt-2 font-medium">1 Bottle • 30-Day Supply</p>
+                        <div class="mt-8 flex items-baseline gap-1">
+                            <span class="text-5xl font-black text-white">$59</span>
+                            <span class="text-sm font-semibold text-slate-500">/bottle</span>
                         </div>
-                        <p class="text-xs text-slate-500 mt-2 line-through">Regular Price: $79.00</p>
-                        <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                            <li class="flex items-center gap-2">✓ 1 Bottle of IronPeak Support</li>
-                            <li class="flex items-center gap-2">✓ Standard Shipping Charges</li>
+                        <p class="text-sm text-slate-500 mt-3 line-through">Retail: $79.00</p>
+                        <ul class="mt-8 space-y-4 text-slate-300 font-medium">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                1 Bottle IronPeak Pro
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                Standard Shipping
+                            </li>
                         </ul>
                     </div>
-                    <!-- Replace '#' with your actual affiliate link -->
-                    <a href="#" class="mt-8 block w-full text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition">
-                        Buy 1 Bottle
+                    <a href="#" class="mt-10 block w-full text-center bg-dark-800 hover:bg-dark-700 text-white font-bold py-4 rounded-xl transition-colors duration-200">
+                        Add to Cart
                     </a>
                 </div>
 
-                <!-- 6 Bottle Option (Best Value) -->
-                <div class="bg-slate-900 p-8 rounded-2xl border-2 border-sky-500 flex flex-col justify-between relative transform lg:-translate-y-4 shadow-2xl shadow-sky-500/10">
-                    <span class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-sky-500 text-slate-950 text-xs font-black uppercase tracking-widest px-4 py-1 rounded-full">
-                        Best Value
-                    </span>
+                <!-- Tier 2: Best Value (Center) -->
+                <div class="bg-dark-950 p-8 rounded-3xl border-2 border-brand-500 flex flex-col justify-between relative transform md:-translate-y-6 shadow-[0_20px_50px_-12px_rgba(14,165,233,0.25)] z-10">
+                    <div class="absolute -top-4 inset-x-0 flex justify-center">
+                        <span class="bg-gradient-to-r from-brand-600 to-brand-400 text-white text-xs font-black uppercase tracking-widest px-6 py-1.5 rounded-full shadow-lg">
+                            Most Popular & Best Value
+                        </span>
+                    </div>
                     <div>
-                        <h3 class="text-xl font-bold text-white text-center">Ultimate Longevity</h3>
-                        <p class="text-xs text-sky-400 text-center mt-1">180-Day Systemic Supply</p>
-                        <div class="mt-6 flex justify-center items-baseline gap-1">
-                            <span class="text-5xl font-black text-white">$39</span>
-                            <span class="text-sm font-medium text-slate-400">/bottle</span>
+                        <h3 class="text-2xl font-bold text-white text-center mt-2">Peak Optimization</h3>
+                        <p class="text-sm text-brand-400 text-center mt-2 font-semibold">6 Bottles • 180-Day Supply</p>
+                        <div class="mt-8 flex justify-center items-baseline gap-1">
+                            <span class="text-6xl font-black text-white">$39</span>
+                            <span class="text-sm font-semibold text-slate-500">/bottle</span>
                         </div>
-                        <p class="text-xs text-slate-500 text-center mt-2 line-through">Regular Price: $474.00</p>
-                        <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                            <li class="flex items-center gap-2 font-semibold text-sky-300">★ Save Over $240 Instantly</li>
-                            <li class="flex items-center gap-2">✓ 6 Bottles of Premium IronPeak</li>
-                            <li class="flex items-center gap-2">✓ Free Domestic Express Delivery</li>
-                            <li class="flex items-center gap-2">✓ VIP Priority Processing</li>
+                        <p class="text-sm text-slate-500 text-center mt-3 line-through">Retail: $474.00</p>
+                        
+                        <div class="bg-brand-500/10 border border-brand-500/20 rounded-lg p-3 mt-6 text-center">
+                            <span class="text-brand-400 font-bold text-sm">🔥 You Save $240.00</span>
+                        </div>
+
+                        <ul class="mt-6 space-y-4 text-slate-300 font-medium">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-400 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                6 Bottles IronPeak Pro
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-400 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                <span class="text-white font-semibold">FREE Express US Shipping</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-400 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                VIP Priority Fulfillment
+                            </li>
                         </ul>
                     </div>
-                    <!-- Replace '#' with your actual affiliate link -->
-                    <a href="#" class="mt-8 block w-full text-center blue-bg text-white font-black py-4 px-4 rounded-xl transition shadow-lg shadow-sky-500/20">
-                        BUY 6 BOTTLES (SAVE 50%)
+                    <a href="#" class="mt-10 block w-full text-center bg-gradient-btn text-white font-extrabold text-lg py-5 rounded-xl transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_-10px_rgba(14,165,233,0.6)]">
+                        CLAIM 6 BOTTLE DISCOUNT
                     </a>
                 </div>
 
-                <!-- 3 Bottle Option -->
-                <div class="bg-slate-900 p-8 rounded-2xl border border-sky-950 flex flex-col justify-between relative">
+                <!-- Tier 3: Popular -->
+                <div class="bg-dark-950 p-8 rounded-3xl border border-dark-800 flex flex-col justify-between relative hover:border-brand-500/30 transition-all duration-300 group">
                     <div>
-                        <h3 class="text-xl font-bold text-white">Popular Pack</h3>
-                        <p class="text-xs text-slate-400 mt-1">90-Day Advanced Cycle</p>
-                        <div class="mt-6 flex items-baseline gap-1">
-                            <span class="text-4xl font-extrabold text-white">$49</span>
-                            <span class="text-sm font-medium text-slate-400">/bottle</span>
+                        <h3 class="text-2xl font-bold text-white">Advanced Cycle</h3>
+                        <p class="text-sm text-slate-400 mt-2 font-medium">3 Bottles • 90-Day Supply</p>
+                        <div class="mt-8 flex items-baseline gap-1">
+                            <span class="text-5xl font-black text-white">$49</span>
+                            <span class="text-sm font-semibold text-slate-500">/bottle</span>
                         </div>
-                        <p class="text-xs text-slate-500 mt-2 line-through">Regular Price: $237.00</p>
-                        <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                            <li class="flex items-center gap-2">✓ 3 Bottles of Premium IronPeak</li>
-                            <li class="flex items-center gap-2">✓ Free Domestic Delivery</li>
+                        <p class="text-sm text-slate-500 mt-3 line-through">Retail: $237.00</p>
+                        <ul class="mt-8 space-y-4 text-slate-300 font-medium">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                3 Bottles IronPeak Pro
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                FREE US Shipping
+                            </li>
                         </ul>
                     </div>
-                    <!-- Replace '#' with your actual affiliate link -->
-                    <a href="#" class="mt-8 block w-full text-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition">
-                        Buy 3 Bottles
+                    <a href="#" class="mt-10 block w-full text-center bg-dark-800 hover:bg-dark-700 text-white font-bold py-4 rounded-xl transition-colors duration-200">
+                        Add to Cart
                     </a>
                 </div>
             </div>
             
-            <!-- Trust Guarantee Banner Inside Funnel Structure -->
-            <div class="max-w-3xl mx-auto mt-16 p-6 rounded-xl border border-dashed border-sky-900/60 flex flex-col sm:flex-row items-center gap-6 bg-slate-900/30">
-                <img src="https://m.media-amazon.com/images/I/712EsaQGugL._AC_SL1500_.jpg" alt="IronPeak Wellness Satisfaction Guarantee Stamp" class="w-24 h-24 object-contain">
-                <div>
-                    <h4 class="text-lg font-bold text-white">Our Ironclad 100% Satisfaction Policy</h4>
-                    <p class="text-sm text-slate-400 mt-1">Try IronPeak Wellness risk-free. If you are not completely satisfied with your stamina and daily focus transformation within our specified validation period, contact our domestic support team for options.</p>
+            <!-- Guarantee -->
+            <div class="max-w-4xl mx-auto mt-20 p-8 md:p-10 rounded-3xl border border-brand-900 bg-brand-950/20 backdrop-blur-sm flex flex-col sm:flex-row items-center gap-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl"></div>
+                <img src="https://m.media-amazon.com/images/I/712EsaQGugL._AC_SL1500_.jpg" alt="100% Satisfaction Guarantee" class="w-32 h-32 object-contain drop-shadow-xl relative z-10">
+                <div class="text-center sm:text-left relative z-10">
+                    <h4 class="text-2xl font-black text-white">Ironclad 100% Satisfaction Guarantee</h4>
+                    <p class="text-slate-300 mt-3 leading-relaxed">
+                        Try IronPeak Pro completely risk-free. If you aren't blown away by your transformation in daily focus, physical stamina, and overall drive within our specified validation period, contact our US-based support team for a prompt resolution.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Frequently Asked Questions (Overcoming Objections) -->
-    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <h2 class="text-3xl font-extrabold text-white text-center mb-12">Frequently Answered Questions</h2>
-        <div class="space-y-6">
-            <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                <h3 class="text-base font-semibold text-white">How should I responsibly take IronPeak Wellness?</h3>
-                <p class="text-sm text-slate-400 mt-2">Take two capsules daily with a full 8oz glass of clean water. For optimal structural alignment, consistency across a minimum 60-90 day window yields systemic cellular support baselines.</p>
+    <!-- Interactive FAQ -->
+    <section class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 z-10">
+        <h2 class="text-3xl sm:text-4xl font-black text-white text-center mb-12">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-dark-700">
+                <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white text-lg">How should I take IronPeak Pro?</span>
+                    <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-5 text-slate-400 leading-relaxed">
+                    Take two capsules daily with a full 8oz glass of water. For maximum structural alignment, consistency across a minimum 60-90 day window is highly recommended to establish systemic cellular support baselines.
+                </div>
             </div>
-            <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                <h3 class="text-base font-semibold text-white">Is this supplement safe to run with daily stack prescriptions?</h3>
-                <p class="text-sm text-slate-400 mt-2">IronPeak utilizes tested, naturally sourced mineral compounds. However, if you are actively managing clinical criteria or taking active pharmaceutical prescriptions, we advise presenting our transparent ingredient map directly to your local practitioner.</p>
+            <!-- FAQ Item 2 -->
+            <div class="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-dark-700">
+                <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white text-lg">Is it safe with other prescriptions?</span>
+                    <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-5 text-slate-400 leading-relaxed">
+                    IronPeak utilizes rigorously tested, naturally sourced botanical and mineral compounds. However, if you are managing a clinical condition or taking prescription medications, we advise showing our transparent label directly to your healthcare provider.
+                </div>
             </div>
-            <div class="bg-slate-900/40 p-6 rounded-xl border border-sky-950">
-                <h3 class="text-base font-semibold text-white">How long before domestic packages arrive?</h3>
-                <p class="text-sm text-slate-400 mt-2">Orders process within 24 business hours. Standard tracking items arrive between 3-5 operational business days directly at your residential mailing address.</p>
+            <!-- FAQ Item 3 -->
+            <div class="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-dark-700">
+                <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                    <span class="font-bold text-white text-lg">How fast is shipping?</span>
+                    <svg class="w-5 h-5 text-brand-500 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-5 text-slate-400 leading-relaxed">
+                    Orders are processed within 24 business hours from our US facility. Standard domestic shipping takes 3-5 business days. Express options (included free in the 6-bottle bundle) take 2-3 business days.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Affiliate Legal & Compliance Footer -->
-    <footer class="bg-slate-950 text-slate-600 text-xs py-12 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
-            <p>Disclaimer: These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Results may vary dynamically depending on individual physiological baselines.</p>
-            <p>© 2026 IronPeak Wellness Affiliate Hub. All rights protected under global trademark laws.</p>
+    <!-- Footer -->
+    <footer class="bg-dark-950 text-slate-600 py-12 border-t border-dark-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center space-y-6 text-center">
+            <div class="text-xl font-black tracking-tighter text-dark-700 flex items-center gap-2 mb-4">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 5.5l5.5 11h-11L12 7.5z"/></svg>
+                IRONPEAK PRO
+            </div>
+            <p class="text-xs max-w-4xl leading-relaxed">
+                Disclaimer: These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. The information provided on this site is for informational purposes only and is not intended as a substitute for advice from your physician or other health care professional.
+            </p>
+            <div class="flex gap-6 text-sm font-medium">
+                <a href="#" class="hover:text-brand-500 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-brand-500 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-brand-500 transition-colors">Contact Support</a>
+            </div>
+            <p class="text-xs mt-4">© 2026 IronPeak Wellness Hub. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Image Modal Interactivity script -->
+    <!-- Interactive Scripts -->
     <script>
+        // Image Gallery Script
+        const thumbnails = [document.getElementById('thumb-1'), document.getElementById('thumb-2'), document.getElementById('thumb-3'), document.getElementById('thumb-4')];
+        
         function changeImage(src) {
-            document.getElementById('main-product-image').src = src;
+            const mainImg = document.getElementById('main-product-image');
+            mainImg.style.opacity = '0.5';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+
+            // Update active state on thumbnails
+            thumbnails.forEach(thumb => {
+                if(thumb.src === src) {
+                    thumb.classList.remove('border-dark-800', 'opacity-60');
+                    thumb.classList.add('border-brand-600', 'opacity-100');
+                } else {
+                    thumb.classList.remove('border-brand-600', 'opacity-100');
+                    thumb.classList.add('border-dark-800', 'opacity-60');
+                }
+            });
         }
+
+        // FAQ Accordion Script
+        document.querySelectorAll('.faq-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                
+                // Toggle current
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
     </script>
 </body>
 </html>
